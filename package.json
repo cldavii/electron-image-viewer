@@ -1,0 +1,18 @@
+{
+  "name": "photo-viewer-lite",
+  "version": "1.0.0",
+  "description": "Visualizador de imagens simplificado com Electron",
+  "license": "ISC",
+  "author": "Davi Felipe Silva Clemente",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron . --disable-gpu",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "electron": "^37.4.0",
+    "electron-window-state": "^5.0.3",
+    "image-size": "^2.0.2"
+  }
+}
