@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, dialog, globalShortcut } = require('electron');
+const { app, BrowserWindow, ipcMain, dialog, globalShortcut, Tray, nativeImage, Menu } = require('electron');
 const path = require('path');
 const fs = require('fs');
 const { imageSizeFromFile } = require('image-size/fromFile')
@@ -7,6 +7,7 @@ const windowStateKeeper = require('electron-window-state');
 let mainWindow;
 let previewWindow;
 let currentImage;
+let tray = null;
 
 const createWindow = () => {
     const mainWindowState = windowStateKeeper({
@@ -103,7 +104,22 @@ const registerShortcuts = () => {
     });
 };
 
+const createTray = () => {
+    const iconPath = path.join(__dirname, 'assets', 'folder.png');
+    const trayIcon = nativeImage.createFromPath(iconPath);
+    tray = new Tray(trayIcon);
+    const contextMenu = Menu.buildFromTemplate([
+        {
+            label: 'Fechar', type: 'normal', click: () => {app.quit()}
+        },
+    ]);
+    tray.setToolTip('Este é meu aplicativo');
+    tray.setTitle('Título da App');
+    tray.setContextMenu(contextMenu);
+}
+
 app.whenReady().then(() => {
+    createTray();
     createWindow();
     registerShortcuts();
     ipcMain.on('windowControls.minimize', () => mainWindow.minimize());
