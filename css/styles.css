@@ -13,10 +13,6 @@ body {
     -webkit-app-region: drag;
 }
 
-#title-bar-draggable {
-    padding-left: 10px;
-}
-
 #title-bar-controls {
     -webkit-app-region: no-drag;
 }
