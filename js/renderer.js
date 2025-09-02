@@ -33,13 +33,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
             const detailsElement = document.createElement('div');
             detailsElement.innerHTML = `
-        <h2>Image Details</h2>
-        <p><strong>Name:</strong> ${result.name}</p>
-        <p><strong>Path:</strong> ${result.path}</p>
-        <p><strong>Size:</strong> ${result.size} bytes</p>
-        <p><strong>Dimensions:</strong> ${result.width} x ${result.height}</p>
-      `;
-
+            <h2>Detalhes da imagem</h2>
+            <p><strong>Nome:</strong> ${result.name}</p>
+            <p><strong>Caminho:</strong> ${result.path}</p>
+            <p><strong>Tamanho:</strong> ${result.size} bytes</p>
+            <p><strong>Dimensões:</strong> ${result.width} x ${result.height}</p>
+            `;
             imageContainer.appendChild(imgElement);
             imageContainer.appendChild(detailsElement);
             contentDiv.appendChild(imageContainer);
